@@ -1,0 +1,33 @@
+{
+    "notes": [{
+            "name": "Tarea de React.js",
+            "detail": "Crear una pagina que permita crear notas",
+            "category": "university",
+            "id": 1
+        },
+        {
+            "name": "Ajustar 3 cursos",
+            "detail": "Ajustar los montajes de 3 cursos en Moodle",
+            "category": "work",
+            "id": 2
+        },
+        {
+            "name": "Receta: arroz con huevo",
+            "detail": "Se necesita un huevo, sal y arroz:\n\nSe le hecha sal al huevo, se bate y luego se le echa al arroz.",
+            "category": "personal",
+            "id": 3
+        },
+        {
+            "name": "Chiste",
+            "detail": "¿Por qué un huevo fue al banco a pedir dinero prestado?\n\nPorque estaba quebrado",
+            "category": "personal",
+            "id": 4
+        },
+        {
+            "name": "dslkfkljalskdfj",
+            "detail": "dslkfajjasldkfjasdgf",
+            "category": "university",
+            "id": 5
+        }
+    ]
+}
