@@ -1,17 +1,23 @@
-import { Container, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
 import { PowerBIEmbed } from 'powerbi-client-react';
 import { models } from 'powerbi-client'
 
+const useStyles = makeStyles((theme)=>({
+    container:{
+        height: '100vh'
+    }
+}));
+
 export default function Stadistics() {
+
+    const classes = useStyles();
+
     return (
-        <Container>
-            <Typography>Estadisticas</Typography>
+        <Container className={classes.container}>
             <PowerBIEmbed
                 embedConfig={{
-                    type: 'report',   // Supported types: report, dashboard, tile, visual and qna
-                    id: '<Report Id>',
-                    embedUrl: '<Embed Url>',
-                    accessToken: '<Access Token>',
+                    type: 'dashboard',   // Supported types: report, dashboard, tile, visual and qna
+                    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiYTEwMTU4YTItNjMwNC00MTAzLThkMzktMzczMGVmZGEzOGNiIiwidCI6ImFjYTUxNjMxLTAwZmUtNDkwZC05MWFiLTE2M2VmODcyNjBlZSIsImMiOjR9',
                     tokenType: models.TokenType.Embed,
                     settings: {
                         panes: {
@@ -32,7 +38,7 @@ export default function Stadistics() {
                     ])
                 }
 
-                cssClassName={"report-style-class"}
+                cssClassName={classes.container}
 
                 getEmbeddedComponent={(embeddedReport) => {
                     window.report = embeddedReport;
