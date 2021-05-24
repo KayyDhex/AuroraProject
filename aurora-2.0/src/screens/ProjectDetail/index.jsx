@@ -1,4 +1,4 @@
-import { Container, TextField, Typography, Box, makeStyles, Grid, Avatar, Button } from "@material-ui/core";
+import { Container, TextField, Typography, Box, makeStyles, Grid, Avatar, Button, FormControl, InputLabel, Select, MenuItem } from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -6,12 +6,14 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import { users } from "../../data/db.json";
 import UserContext from "../../context/user";
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import TagComponent from "../../components/others/TagComponent";
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import TaskSection from "../Dashboard/components/TaskSection";
+import TaskList from "./components/TaskList";
 
 const useStyles = makeStyles((theme) => ({
     tag: {
@@ -57,19 +59,33 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row'
     },
     btnGeneral: {
-        margin: 30
+        marginTop: 50
     },
     avatarColor: {
         color: theme.palette.secondary.main,
         backgroundColor: theme.palette.primary.main
+    },
+    btnRemove: {
+        backgroundColor: 'red',
+        color: 'white'
+    },
+    btnEdit: {
+        backgroundColor: theme.palette.primary.dark,
+        color: 'white',
+        marginRight: 10
+    },
+    formControl: {
+        margin: theme.spacing(3),
+        minWidth: '90%',
     }
 }));
 
 export default function ProjectDetail() {
 
     const { id } = useParams();
-    const { getProjectDetail, projectDetail, getUsers, users } = useContext(UserContext);
+    const { getProjectDetail, projectDetail, getUsers } = useContext(UserContext);
     const [open, setOpen] = useState(false);
+    const [newUser, setNewUser] = useState({});
     const classes = useStyles();
     const history = useHistory();
 
@@ -92,6 +108,18 @@ export default function ProjectDetail() {
     const handleClose = () => {
         setOpen(false);
     };
+    const handleAddUser = (e) => {
+        e.preventDefault();
+
+        const usersTeam = [newUser, ...projectDetail.usersTeam];
+        console.log(usersTeam);
+        fetch(`http://localhost:3000/projects/${id}`, {
+            method: 'PATCH',
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({ usersTeam })
+        }).then(() => history.goBack());
+        setOpen(false);
+    }
 
     return (
         <Container>
@@ -105,7 +133,7 @@ export default function ProjectDetail() {
                 >
                     <Box>
                         <Typography>Fecha de entrega: {projectDetail.endDate}</Typography>
-
+                        <TaskList projects={projectDetail} />
                     </Box>
                     <Box className={classes.boxAvatar}>
                         <Typography>Participantes</Typography>
@@ -128,8 +156,8 @@ export default function ProjectDetail() {
 
             </Box>
             <Box className={classes.btnGeneral}>
-                <Button variant="contained" endIcon={<EditIcon />} onClick={() => history.push(`/projects/update-project/${id}`)}>Editar Proyecto</Button>
-                <Button variant="contained" endIcon={<DeleteForeverIcon />} onClick={handleRemoveProject}>Eliminar Proyecto</Button>
+                <Button className={classes.btnEdit} variant="contained" endIcon={<EditIcon />} onClick={() => history.push(`/projects/update-project/${id}`)}>Editar Proyecto</Button>
+                <Button className={classes.btnRemove} variant="contained" endIcon={<DeleteForeverIcon />} onClick={handleRemoveProject}>Eliminar Proyecto</Button>
             </Box>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Inscribir usuario</DialogTitle>
@@ -137,20 +165,23 @@ export default function ProjectDetail() {
                     <DialogContentText>
                         Selecciona a el usuario que inscribiras en este proyecto.
             </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                    />
+                    <FormControl className={classes.formControl}>
+                        <InputLabel id='label1'>Correo electronico</InputLabel>
+                        <Select
+                            value={newUser}
+                            onChange={(e) => { setNewUser(e.target.value) }}
+                        >
+                            {users.map((user) => (
+                                <MenuItem value={user}>{user.name.firstName} {user.name.lastName}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Cancel
           </Button>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleAddUser} color="primary">
                         Añadir
           </Button>
                 </DialogActions>
