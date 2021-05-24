@@ -41,6 +41,8 @@ export default function UpdateProject(){
     const [advisor, setAdvisor] = useState("");
     const [progress,setProgress] = useState(0);
     const [priority, setPriority] = useState("0");
+    const [usersTeam, setUsersTeam] = useState([]);
+    const [task, setTask] = useState([]);
 
     useEffect(()=>{
         fetch(`http://localhost:3000/projects/${id}`)
@@ -52,6 +54,8 @@ export default function UpdateProject(){
                 setAdvisor(data.advisor);
                 setProgress(data.progress);
                 setPriority(data.priority);
+                setUsersTeam(data.usersTeam);
+                setTask(data.task);
             });
     },[]);
 

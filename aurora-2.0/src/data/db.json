@@ -98,86 +98,11 @@
     },
     {
       "name": "Prospectiva Estrategica",
-      "details": "Hola inserte mas texto",
+      "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "endDate": "2021-05-24T21:53:00.000Z",
       "advisor": "Jorge Leon Prado",
       "progress": 0,
       "priority": "0",
-      "usersTeam": [
-        {
-          "name": {
-            "firstName": "Joseph",
-            "lastName": "Rojas"
-          },
-          "email": "josephrogo@unisabana.edu.co",
-          "lastAcces": "20-05-2021",
-          "password": "ramito1",
-          "role": "Lider",
-          "area": "Produccion",
-          "id": 0
-        },
-        {
-          "id": 1,
-          "name": {
-            "firstName": "Hans",
-            "lastName": "Correa",
-            "alternativeName": "Hasinto"
-          },
-          "email": "hanscorca@unisabana.edu.co",
-          "lastAcces": "20-05-2021",
-          "password": "ramito2",
-          "role": "PAT",
-          "area": "Produccion"
-        },
-        {
-          "name": {
-            "firstName": "Christian ",
-            "lastName": "Rodriguez"
-          },
-          "email": "chrisrodca@unisabana.edu.co",
-          "lastAcces": "20-05-2021",
-          "password": "ramito54",
-          "role": "Lider",
-          "area": "Produccion",
-          "id": 2
-        },
-        {
-          "name": {
-            "firstName": "Jorge",
-            "lastName": "Leon Prado"
-          },
-          "email": "jorgelepra@unisabana.edu.co",
-          "lastAcces": "20-05-2021",
-          "password": "jorjito20",
-          "role": "Administrador",
-          "area": "Produccion",
-          "id": 4
-        },
-        {
-          "name": {
-            "firstName": "Alma",
-            "lastName": "Pinzo Zolano"
-          },
-          "email": "almapizo@unisabana.edu.co",
-          "lastAcces": "20-05-2021",
-          "password": "joseph3",
-          "role": "PAT",
-          "area": "Proyectos",
-          "id": 5
-        }
-      ],
-      "task": [
-        {
-          "name": "Aperturas Cohorte 5",
-          "detail": "Aperturas Cohorte 5",
-          "checked": true
-        },
-        {
-          "name": "Aperturas Cohorte 5",
-          "detail": "Aperturas Cohorte 5",
-          "checked": true
-        }
-      ],
       "id": 2
     }
   ],

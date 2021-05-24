@@ -1,7 +1,8 @@
-import { Container, makeStyles, TableContainer, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, Box, Button } from "@material-ui/core";
+import { IconButton,Container, makeStyles, TableContainer, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, Box, Button } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import TagComponent from "../../components/others/TagComponent";
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const data = [{ id: 0, name: 'Funciones Financieras', advisor: 'Christian Rodriguez', date: '20-05-2021', priority: '0' },
 { id: 1, name: 'Funciones Financieras', advisor: 'Christian Rodriguez', date: '20-05-2021', priority: '0' },
@@ -76,7 +77,8 @@ export default function Projects() {
                             <TableCell>Proyecto</TableCell>
                             <TableCell align="right">Encargado</TableCell>
                             <TableCell align='right'>Fecha de Entrega</TableCell>
-                            <TableCell align='right'>Prioridad</TableCell>
+                            <TableCell align='left'>Prioridad</TableCell>
+                            <TableCell align='right'>Ver Mas</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -86,6 +88,9 @@ export default function Projects() {
                                 <TableCell align='right'>{row.advisor}</TableCell>
                                 <TableCell align='right'>{row.endDate}</TableCell>
                                 <TableCell align='right'><TagComponent tag={row.priority} classes={classes} /></TableCell>
+                                <TableCell align='right'>
+                                <IconButton onClick={() => history.push(`/projects/project-detail/${row.id}`)}><VisibilityIcon /></IconButton>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

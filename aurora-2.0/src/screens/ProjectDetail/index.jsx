@@ -56,8 +56,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row'
     },
-    btnGeneral:{
+    btnGeneral: {
         margin: 30
+    },
+    avatarColor: {
+        color: theme.palette.secondary.main,
+        backgroundColor: theme.palette.primary.main
     }
 }));
 
@@ -121,7 +125,7 @@ export default function ProjectDetail() {
                     <Typography variant='subtitle1' className={classes.title} noWrap>Tareas</Typography>
                     <Box className={classes.btnTask}><Button color='primary' onClick={() => history.push(`/projects/add-task`)}><Typography variant='caption'>Agregar Tarea</Typography></Button></Box>
                 </Box>
-                
+
             </Box>
             <Box className={classes.btnGeneral}>
                 <Button variant="contained" endIcon={<EditIcon />} onClick={() => history.push(`/projects/update-project/${id}`)}>Editar Proyecto</Button>
