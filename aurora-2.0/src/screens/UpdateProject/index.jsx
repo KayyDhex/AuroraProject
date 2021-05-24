@@ -64,7 +64,7 @@ export default function UpdateProject(){
         fetch(`http://localhost:3000/projects/${id}`, {
             method: 'PUT',
             headers: { "Content-type": "application/json" },
-            body: JSON.stringify({ name, details, endDate, advisor, progress, priority })
+            body: JSON.stringify({ name, details, endDate, advisor, progress, priority, usersTeam, task })
         }).then(() => history.goBack());
     };
 

@@ -1,4 +1,4 @@
-import { IconButton,Container, makeStyles, TableContainer, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, Box, Button } from "@material-ui/core";
+import { IconButton, Container, makeStyles, TableContainer, Typography, Paper, Table, TableHead, TableRow, TableCell, TableBody, Box, Button } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import TagComponent from "../../components/others/TagComponent";
@@ -89,7 +89,7 @@ export default function Projects() {
                                 <TableCell align='right'>{row.endDate}</TableCell>
                                 <TableCell align='right'><TagComponent tag={row.priority} classes={classes} /></TableCell>
                                 <TableCell align='right'>
-                                <IconButton onClick={() => history.push(`/projects/project-detail/${row.id}`)}><VisibilityIcon /></IconButton>
+                                    <IconButton onClick={() => history.push(`/projects/project-detail/${row.id}`)}><VisibilityIcon /></IconButton>
                                 </TableCell>
                             </TableRow>
                         ))}

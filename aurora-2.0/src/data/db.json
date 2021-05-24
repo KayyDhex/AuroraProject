@@ -61,18 +61,6 @@
     },
     {
       "name": {
-        "firstName": "Jorge",
-        "lastName": "Leon Prado"
-      },
-      "email": "jorgelepra@unisabana.edu.co",
-      "lastAcces": "20-05-2021",
-      "password": "jorjito20",
-      "role": "Administrador",
-      "area": "Produccion",
-      "id": 4
-    },
-    {
-      "name": {
         "firstName": "Alma",
         "lastName": "Pinzo Zolano"
       },
@@ -82,17 +70,79 @@
       "role": "PAT",
       "area": "Proyectos",
       "id": 5
+    },
+    {
+      "name": {
+        "firstName": "Celia",
+        "lastName": "Cruz Betancour"
+      },
+      "email": "celiacrube@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "guitarmaster155",
+      "role": "Project Manager",
+      "area": "Proyectos",
+      "id": 6
     }
   ],
   "projects": [
     {
       "name": "Funciones Ejecutivas",
-      "details": "Curso de Unisabana E-Learning",
+      "details": "Curso de Unisabana E-Learning Mas texto...",
       "endDate": "2021-05-24T08:42:00.000Z",
       "advisor": "Alma Pinzo Zolano",
       "progress": 90,
       "priority": "0",
-      "usersTeam": [],
+      "usersTeam": [
+        {
+          "name": {
+            "firstName": "Alma",
+            "lastName": "Pinzo Zolano"
+          },
+          "email": "almapizo@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "joseph3",
+          "role": "PAT",
+          "area": "Proyectos",
+          "id": 5
+        },
+        {
+          "name": {
+            "firstName": "Christian ",
+            "lastName": "Rodriguez"
+          },
+          "email": "chrisrodca@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "ramito54",
+          "role": "Lider",
+          "area": "Produccion",
+          "id": 2
+        },
+        {
+          "id": 1,
+          "name": {
+            "firstName": "Hans",
+            "lastName": "Correa",
+            "alternativeName": "Hasinto"
+          },
+          "email": "hanscorca@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "ramito2",
+          "role": "PAT",
+          "area": "Produccion"
+        },
+        {
+          "name": {
+            "firstName": "Jorge",
+            "lastName": "Leon Prado"
+          },
+          "email": "jorgelepra@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "jorjito20",
+          "role": "Administrador",
+          "area": "Produccion",
+          "id": 4
+        }
+      ],
       "task": [],
       "id": 0
     },
@@ -104,6 +154,17 @@
       "progress": 0,
       "priority": "0",
       "id": 2
+    },
+    {
+      "name": "Gerencia de Proyectos",
+      "details": "Descripción",
+      "endDate": "2021-06-01T02:33:00.000Z",
+      "advisor": "Jorge Leon Prado",
+      "progress": 0,
+      "priority": "2",
+      "usersTeam": [],
+      "task": [],
+      "id": 4
     }
   ],
   "projectAsigned": [
