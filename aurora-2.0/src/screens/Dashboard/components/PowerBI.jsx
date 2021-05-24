@@ -4,11 +4,12 @@ import { models } from 'powerbi-client'
 
 const useStyles = makeStyles((theme)=>({
     container:{
-        height: '80vh'
+        height : '80vh',
+        margin : '10px'
     }
 }));
 
-export default function Stadistics() {
+export default function PowerBI() {
 
     const classes = useStyles();
 
@@ -17,7 +18,7 @@ export default function Stadistics() {
             <PowerBIEmbed
                 embedConfig={{
                     type: 'dashboard',   // Supported types: report, dashboard, tile, visual and qna
-                    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiYTEwMTU4YTItNjMwNC00MTAzLThkMzktMzczMGVmZGEzOGNiIiwidCI6ImFjYTUxNjMxLTAwZmUtNDkwZC05MWFiLTE2M2VmODcyNjBlZSIsImMiOjR9',
+                    embedUrl: 'https://app.powerbi.com/view?r=eyJrIjoiN2E0NWNlOWEtZmZhNC00YjA1LTk0NjEtOWMwN2M5MzU2ZTQyIiwidCI6ImFjYTUxNjMxLTAwZmUtNDkwZC05MWFiLTE2M2VmODcyNjBlZSIsImMiOjR9',
                     tokenType: models.TokenType.Embed,
                     settings: {
                         panes: {

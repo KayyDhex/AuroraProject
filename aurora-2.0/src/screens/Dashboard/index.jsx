@@ -1,6 +1,7 @@
 import { Container, Typography, makeStyles, Button, Box } from "@material-ui/core";
 import { useState, useEffect } from "react";
 import CardProjects from "./components/CardProjects";
+import PowerBI from "./components/PowerBI";
 import TaskSection from "./components/TaskSection";
 
 
@@ -18,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
-        transform: 'translateZ(0)'
+        transform: 'translateZ(0)',
+        marginBottom: 10
     },
     taskSection: {
         marginTop: theme.spacing(3)
@@ -60,6 +62,8 @@ export default function Dashboard() {
                     <CardProjects key={value.id} id={value.id} name={value.name} lastDate={value.endDate} nextTask='Apertura cohorte 5' progress={value.progress} tag={value.priority} />
                 ))}
             </Container>
+            <Typography variant='subtitle1'>Resumen de actividades</Typography>
+            <PowerBI />
             <Box className={classes.boxTask}><Typography variant='subtitle1' className={classes.title}>Tareas</Typography>
                 <Box className={classes.btnShowMore}><Button color='primary'><Typography variant='caption'>Ver todas</Typography></Button></Box>
             </Box>
