@@ -112,7 +112,7 @@ export default function ProjectDetail() {
         e.preventDefault();
 
         const usersTeam = [newUser, ...projectDetail.usersTeam];
-        console.log(usersTeam);
+
         fetch(`http://localhost:3000/projects/${id}`, {
             method: 'PATCH',
             headers: { "Content-type": "application/json" },
@@ -133,7 +133,7 @@ export default function ProjectDetail() {
                 >
                     <Box>
                         <Typography>Fecha de entrega: {projectDetail.endDate}</Typography>
-                        <TaskList projects={projectDetail} />
+
                     </Box>
                     <Box className={classes.boxAvatar}>
                         <Typography>Participantes</Typography>
@@ -153,7 +153,7 @@ export default function ProjectDetail() {
                     <Typography variant='subtitle1' className={classes.title} noWrap>Tareas</Typography>
                     <Box className={classes.btnTask}><Button color='primary' onClick={() => history.push(`/projects/add-task`)}><Typography variant='caption'>Agregar Tarea</Typography></Button></Box>
                 </Box>
-
+                <TaskList projects={projectDetail} />
             </Box>
             <Box className={classes.btnGeneral}>
                 <Button className={classes.btnEdit} variant="contained" endIcon={<EditIcon />} onClick={() => history.push(`/projects/update-project/${id}`)}>Editar Proyecto</Button>

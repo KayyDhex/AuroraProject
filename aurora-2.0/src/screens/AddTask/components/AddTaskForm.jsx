@@ -1,7 +1,8 @@
 import 'date-fns';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { Button, FormControl, InputLabel, makeStyles, MenuItem, Select, TextField, Grid } from "@material-ui/core";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from '../../../context/user';
 import { useHistory } from "react-router";
 import { users } from "../../../data/db.json";
 import DateFnsUtils from '@date-io/date-fns';
@@ -10,6 +11,7 @@ import {
     KeyboardDatePicker,
     validate,
 } from '@material-ui/pickers';
+
 
 
 const useStyles = makeStyles((theme) => (
@@ -33,21 +35,22 @@ export default function AddTaskForm() {
 
     const history = useHistory();
     const classes = useStyles();
+    const { projectDetail } = useContext(UserContext);
     const [name, setName] = useState("");
     const [details, setDetail] = useState("");
+    const [user, setUser] = useState("");
     const [endDate, setEndDate] = useState();
-    const [advisor, setAdvisor] = useState("");
-    const [progress] = useState(0);
-    const [priority] = useState("0");
-    const [usersTeam, setUsersTeam] = useState([]);
-    const [task, setTask] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/projects', {
-            method: 'POST',
+
+        const newTask = { name: name, user: user, detail: details, endDate: endDate, checked: false }
+        const task = [newTask, ...projectDetail.task];
+        console.log(task);
+        fetch(`http://localhost:3000/projects/${projectDetail.id}`, {
+            method: 'PATCH',
             headers: { "Content-type": "application/json" },
-            body: JSON.stringify({ name, details, endDate, advisor, progress, priority, usersTeam, task })
+            body: JSON.stringify({ task })
         }).then(() => history.goBack());
     };
 
@@ -56,16 +59,15 @@ export default function AddTaskForm() {
             <TextField
                 onChange={(e) => { setName(e.target.value) }}
                 value={name}
-                className={classes.field}
-                label='Nombre del proyecto'
-                variant='outlined'
-                required
+                label="Nombre de la tarea"
+                variant="outlined"
+                fullWidth
             />
             <FormControl className={classes.formControl}>
                 <InputLabel>Encargado</InputLabel>
                 <Select
-                    value={advisor}
-                    onChange={(e) => { setAdvisor(e.target.value) }}
+                    value={user}
+                    onChange={(e) => { setUser(e.target.value) }}
                 >
                     {users.map((value) => (
                         <MenuItem value={`${value.name.firstName} ${value.name.lastName}`}>{value.name.firstName} {value.name.lastName}</MenuItem>
