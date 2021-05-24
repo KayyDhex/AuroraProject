@@ -61,18 +61,6 @@
     },
     {
       "name": {
-        "firstName": "Alma",
-        "lastName": "Pinzo Zolano"
-      },
-      "email": "almapizo@unisabana.edu.co",
-      "lastAcces": "20-05-2021",
-      "password": "joseph3",
-      "role": "PAT",
-      "area": "Proyectos",
-      "id": 5
-    },
-    {
-      "name": {
         "firstName": "Celia",
         "lastName": "Cruz Betancour"
       },
@@ -82,6 +70,18 @@
       "role": "Project Manager",
       "area": "Proyectos",
       "id": 6
+    },
+    {
+      "name": {
+        "firstName": "Juan",
+        "lastName": "Ramírez Gonzales"
+      },
+      "email": "jorgelepra@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "guitarmaster155CH",
+      "role": "Lider",
+      "area": "Proyectos",
+      "id": 7
     }
   ],
   "projects": [
@@ -89,7 +89,7 @@
       "name": "Funciones Ejecutivas",
       "details": "Curso de Unisabana E-Learning Mas texto...",
       "endDate": "2021-05-24T08:42:00.000Z",
-      "advisor": "Alma Pinzo Zolano",
+      "advisor": "Hans Correa",
       "progress": 90,
       "priority": "0",
       "usersTeam": [
@@ -144,6 +144,13 @@
         }
       ],
       "task": [
+        {
+          "name": "Tarea Sistemas",
+          "user": "Joseph Rojas",
+          "detail": "Hacerlo todo",
+          "endDate": "2021-05-24T17:29:00.000Z",
+          "checked": false
+        },
         {
           "name": "La locura xdxdxd",
           "user": "Alma Pinzo Zolano",

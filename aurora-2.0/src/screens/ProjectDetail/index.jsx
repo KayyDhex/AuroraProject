@@ -162,9 +162,7 @@ export default function ProjectDetail() {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Inscribir usuario</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        Selecciona a el usuario que inscribiras en este proyecto.
-            </DialogContentText>
+                    <DialogContentText>Selecciona a el usuario que inscribiras en este proyecto.</DialogContentText>
                     <FormControl className={classes.formControl}>
                         <InputLabel id='label1'>Correo electronico</InputLabel>
                         <Select
@@ -178,12 +176,8 @@ export default function ProjectDetail() {
                     </FormControl>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
-                        Cancel
-          </Button>
-                    <Button onClick={handleAddUser} color="primary">
-                        Añadir
-          </Button>
+                    <Button onClick={handleClose} color="primary">Cancel</Button>
+                    <Button onClick={handleAddUser} color="primary">Añadir</Button>
                 </DialogActions>
             </Dialog>
         </Container>

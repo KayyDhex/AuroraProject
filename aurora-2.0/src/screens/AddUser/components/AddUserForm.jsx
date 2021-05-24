@@ -1,5 +1,5 @@
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { Button, FormControl, InputLabel, makeStyles, MenuItem, Select, TextField, Box } from "@material-ui/core";
+import { Button, FormControl, InputLabel, makeStyles, MenuItem, Select, TextField, Box, Typography, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@material-ui/core";
 import { useState } from "react";
 import { useHistory } from "react-router";
 
@@ -46,14 +46,41 @@ export default function AddUserForm() {
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("");
     const [area, setArea] = useState("");
+    const [open, setOpen] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/users', {
-            method: 'POST',
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify({ name: { firstName, lastName }, email, lastAcces, password, role, area })
-        }).then(() => history.goBack());
+        if (validatePassword()) {
+            fetch('http://localhost:3000/users', {
+                method: 'POST',
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify({ name: { firstName, lastName }, email, lastAcces, password, role, area })
+            }).then(() => history.goBack());
+        } else {
+            handleClickOpen();
+        }
+    };
+    const validatePassword = () => {
+        let size = password.length >= 8;
+        let number = false;
+        let char = false;
+        let array = Array.from(password);
+        array.map((character) => {
+            if (character >= '0' && character <= '9') {
+                number = true;
+            } else {
+                char = true;
+            }
+        });
+        return size && number && char;
+    }
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
     };
 
     return (
@@ -126,7 +153,25 @@ export default function AddUserForm() {
                 endIcon={<ArrowForwardIosIcon />}>
                 Crear
             </Button>
-
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">{"Error al ingresar"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        <Typography>La constraseña no cumple los requisitos.</Typography>
+                        <Typography>* Debe contener 8 caracteres</Typography>
+                        <Typography>* Debe tener al menos un numero</Typography>
+                        <Typography>* Debe tener al menos una letra</Typography>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary" autoFocus>Aceptar</Button>
+                </DialogActions>
+            </Dialog>
         </form>
     );
 }
