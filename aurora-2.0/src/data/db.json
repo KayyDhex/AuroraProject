@@ -1,0 +1,226 @@
+{
+  "roles": [
+    {
+      "id": 0,
+      "name": "Administrador"
+    },
+    {
+      "id": 1,
+      "name": "Diseñador grafico"
+    },
+    {
+      "id": 2,
+      "name": "Lider"
+    },
+    {
+      "id": 3,
+      "name": "Manager"
+    },
+    {
+      "id": 4,
+      "name": "PAT"
+    }
+  ],
+  "users": [
+    {
+      "name": {
+        "firstName": "Joseph",
+        "lastName": "Rojas"
+      },
+      "email": "josephrogo@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "ramito1",
+      "role": "Lider",
+      "area": "Produccion",
+      "id": 0
+    },
+    {
+      "id": 1,
+      "name": {
+        "firstName": "Hans",
+        "lastName": "Correa",
+        "alternativeName": "Hasinto"
+      },
+      "email": "hanscorca@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "ramito2",
+      "role": "PAT",
+      "area": "Produccion"
+    },
+    {
+      "name": {
+        "firstName": "Christian ",
+        "lastName": "Rodriguez"
+      },
+      "email": "chrisrodca@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "ramito54",
+      "role": "Lider",
+      "area": "Produccion",
+      "id": 2
+    },
+    {
+      "name": {
+        "firstName": "Jorge",
+        "lastName": "Leon Prado"
+      },
+      "email": "jorgelepra@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "jorjito20",
+      "role": "Administrador",
+      "area": "Produccion",
+      "id": 4
+    },
+    {
+      "name": {
+        "firstName": "Alma",
+        "lastName": "Pinzo Zolano"
+      },
+      "email": "almapizo@unisabana.edu.co",
+      "lastAcces": "20-05-2021",
+      "password": "joseph3",
+      "role": "PAT",
+      "area": "Proyectos",
+      "id": 5
+    }
+  ],
+  "projects": [
+    {
+      "name": "Funciones Ejecutivas",
+      "details": "Curso de Unisabana E-Learning",
+      "endDate": "2021-05-24T08:42:00.000Z",
+      "advisor": "Alma Pinzo Zolano",
+      "progress": 90,
+      "priority": "0",
+      "usersTeam": [],
+      "task": [],
+      "id": 0
+    },
+    {
+      "name": "Prospectiva Estrategica",
+      "details": "Hola inserte mas texto",
+      "endDate": "2021-05-24T21:53:00.000Z",
+      "advisor": "Jorge Leon Prado",
+      "progress": 0,
+      "priority": "0",
+      "usersTeam": [
+        {
+          "name": {
+            "firstName": "Joseph",
+            "lastName": "Rojas"
+          },
+          "email": "josephrogo@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "ramito1",
+          "role": "Lider",
+          "area": "Produccion",
+          "id": 0
+        },
+        {
+          "id": 1,
+          "name": {
+            "firstName": "Hans",
+            "lastName": "Correa",
+            "alternativeName": "Hasinto"
+          },
+          "email": "hanscorca@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "ramito2",
+          "role": "PAT",
+          "area": "Produccion"
+        },
+        {
+          "name": {
+            "firstName": "Christian ",
+            "lastName": "Rodriguez"
+          },
+          "email": "chrisrodca@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "ramito54",
+          "role": "Lider",
+          "area": "Produccion",
+          "id": 2
+        },
+        {
+          "name": {
+            "firstName": "Jorge",
+            "lastName": "Leon Prado"
+          },
+          "email": "jorgelepra@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "jorjito20",
+          "role": "Administrador",
+          "area": "Produccion",
+          "id": 4
+        },
+        {
+          "name": {
+            "firstName": "Alma",
+            "lastName": "Pinzo Zolano"
+          },
+          "email": "almapizo@unisabana.edu.co",
+          "lastAcces": "20-05-2021",
+          "password": "joseph3",
+          "role": "PAT",
+          "area": "Proyectos",
+          "id": 5
+        }
+      ],
+      "task": [
+        {
+          "name": "Aperturas Cohorte 5",
+          "detail": "Aperturas Cohorte 5",
+          "checked": true
+        },
+        {
+          "name": "Aperturas Cohorte 5",
+          "detail": "Aperturas Cohorte 5",
+          "checked": true
+        }
+      ],
+      "id": 2
+    }
+  ],
+  "projectAsigned": [
+    {
+      "idproyect": 0,
+      "user": {
+        "id": 2,
+        "name": {
+          "firstName": "Christian",
+          "lastName": "Rodriguez",
+          "alternativeName": "Christian"
+        },
+        "email": "christianrodca@unisabana.edu.co",
+        "lastAcces": "20-05-2021",
+        "password": "ramito3",
+        "role": {
+          "id": 4,
+          "name": "PAT"
+        }
+      },
+      "state": "Fase 2"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 0,
+      "user": {
+        "id": 1,
+        "name": {
+          "firstName": "Hans",
+          "lastName": "Correa",
+          "alternativeName": "Hasinto"
+        },
+        "email": "hanscorca@unisabana.edu.co",
+        "lastAcces": "20-05-2021",
+        "password": "ramito2",
+        "role": 4
+      },
+      "idProject": 0,
+      "detail": "Jugar Bingo",
+      "endDate": "30-05-2021",
+      "done": false
+    }
+  ]
+}
